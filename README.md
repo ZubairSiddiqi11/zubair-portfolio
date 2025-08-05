@@ -1,7 +1,7 @@
 # Mohammad Zubair Siddiqi - Professional Portfolio
 
 ## 🚀 Live Portfolio
-Visit my live portfolio: [https://YOUR_GITHUB_USERNAME.github.io/zubair-portfolio](https://YOUR_GITHUB_USERNAME.github.io/zubair-portfolio)
+Visit my live portfolio: [https://zubairsiddiqi11.github.io/zubair-portfolio](https://zubairsiddiqi11.github.io/zubair-portfolio)
 
 ## 👨‍💻 About Me
 Chief Technology Officer with 9+ years of experience in network infrastructure, cloud solutions, and technology leadership.
