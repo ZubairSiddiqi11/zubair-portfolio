@@ -1,652 +1,1436 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Mohammad Zubair Siddiqi — Network Engineer & IT Professional</title>
-  <meta name="description" content="Mohammad Zubair Siddiqi - Network Engineer, IT System Audit, Cybersecurity, Web Development. Contact: m.zubairsiddiqi1@gmail.com">
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a2d9d9b6a1.js" crossorigin="anonymous"></script>
-  <!-- Tailwind CDN for convenience -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    :root{
-      --bg1:#081229;
-      --bg2:#071033;
-      --accent1:#00f5ff;
-      --accent2:#0080ff;
-      --accent3:#8B5CF6;
-      --glass: rgba(255,255,255,0.06);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Zubair Siddiqi - [Your Current Job Title from CV] | [Your Specialization from CV]</title>
+    <meta name="description" content="Mohammad Zubair Siddiqi - [Copy exact professional summary from your CV here]">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6; 
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        
+        /* Ensure mobile viewport works correctly */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Fix text overflow on mobile */
+            .text-responsive {
+                word-break: break-word;
+                hyphens: auto;
+            }
+        }
+    </style>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-cyan': '#00f5ff',
+                        'custom-blue': '#0080ff',
+                        'custom-purple': '#8B5CF6',
+                        'custom-dark': '#0a0a0a',
+                        'custom-gray': '#1a1a2e'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace']
+                    },
+                    animation: {
+                        'gradient': 'gradient 6s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce 2s infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+    /* Custom animations */
+    @keyframes gradient {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
     }
-    html,body{height:100%}
-    body{
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      margin:0;
-      background: linear-gradient(180deg,var(--bg1) 0%, #071433 50%, #031021 100%);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
     }
-
-    /* Site layout */
-    .site-max{max-width:1180px;margin:0 auto;padding:24px;}
-
-    /* Navigation */
-    nav { position:fixed;inset:16px 20px auto 20px;z-index:60;backdrop-filter: blur(8px);background: linear-gradient(180deg, rgba(10,12,20,0.45), rgba(10,12,20,0.25));border-radius:14px;padding:10px 14px;box-shadow: 0 6px 30px rgba(2,6,23,0.6);display:flex;align-items:center;gap:16px; }
-    nav .brand{display:flex;align-items:center;gap:10px}
-    nav .logo {width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent1),var(--accent2));color:#012;text-shadow:0 1px 8px rgba(0,0,0,0.4);}
-    nav .navlinks{display:flex;gap:10px;align-items:center}
-    nav a{color:rgba(230,238,248,0.9);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
-    nav a:hover{background:rgba(255,255,255,0.035);transform:translateY(-2px)}
-
-    /* Mobile */
-    .mobile-toggle{display:none}
-    @media (max-width:900px){
-      nav{left:12px;right:12px;justify-content:space-between}
-      .navlinks{display:none}
-      .mobile-toggle{display:block}
+    
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-out;
     }
-
-    /* Hero */
-    #hero{
-      min-height:100vh;
-      display:grid;
-      align-items:center;
-      position:relative;
-      overflow:hidden;
-      padding-top:48px;
+    
+    .animate-on-scroll.animate-in {
+        opacity: 1;
+        transform: translateY(0);
     }
-    /* Canvas layering */
-    canvas.bg-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;mix-blend-mode:screen;opacity:0.95}
-    .hero-inner{position:relative;z-index:10;display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;padding:48px 24px}
-    @media (max-width:1100px){ .hero-inner{grid-template-columns:1fr} .hero-card{order:2} }
-
-    .hero-title{font-size: clamp(28px, 4vw, 56px); line-height:1; font-weight:800; background: linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3)); -webkit-background-clip:text; background-clip:text; color:transparent; letter-spacing:-0.6px}
-    .hero-sub {color:rgba(230,238,248,0.84);font-weight:600;margin-top:12px}
-    .typewriter{font-family: 'JetBrains Mono', monospace;color:var(--accent1);font-weight:600;display:inline-block}
-
-    /* Glass card */
-    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); padding:22px;border-radius:14px;box-shadow: 0 8px 40px rgba(4,8,20,0.7)}
-    .stat {display:flex;gap:12px;align-items:center}
-    .stat .num{font-weight:800;font-size:20px;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;color:transparent}
-    .btn-gradient{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#002b3a;padding:10px 16px;border-radius:999px;font-weight:700}
-
-    /* Sections */
-    section{padding:64px 24px}
-    .section-title{font-size:28px;font-weight:800;margin-bottom:12px; background: linear-gradient(90deg,var(--accent1),var(--accent3));-webkit-background-clip:text;color:transparent}
-    .lead{color:rgba(230,238,248,0.75);max-width:900px}
-
-    /* Cards grid */
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    @media (max-width:1000px){.grid-3{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:640px){.grid-3{grid-template-columns:1fr}}
-
-    /* Skill bars */
-    .skill-bar{height:10px;background:rgba(255,255,255,0.06);border-radius:999px;overflow:hidden}
-    .skill-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent2),var(--accent3));transform:translateX(-100%);transition:transform 1.2s cubic-bezier(.2,.9,.3,1)}
-
-    /* timeline */
-    .timeline{position:relative;padding-left:26px}
-    .timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--accent1),var(--accent3));opacity:0.9}
-
-    .timeline-item{position:relative;margin-bottom:28px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-    .timeline-item::before{content:'';position:absolute;left:-24px;top:22px;width:16px;height:16px;border-radius:999px;background:linear-gradient(90deg,var(--accent1),var(--accent2));box-shadow:0 6px 18px rgba(0,0,0,0.5)}
-
-    /* Reveal animations */
-    .reveal{opacity:0;transform:translateY(18px) scale(.99);transition:all .8s cubic-bezier(.2,.9,.3,1)}
-    .reveal.in{opacity:1;transform:none}
-
-    /* Footer/contact */
-    footer{padding:40px 24px;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-
-    /* Small helpers */
-    .chip{display:inline-flex;gap:8px;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:700}
-    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03);display:inline-block}
-    /* SVG waves */
-    .wave{display:block;width:100%;transform:translateY(2px)}
-  </style>
+    
+    /* Typewriter effect */
+    #typewriter {
+        display: inline-block;
+        min-width: 200px;
+        text-align: left;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #1a1a2e;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(45deg, #00f5ff, #0080ff);
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(45deg, #0080ff, #00f5ff);
+    }
+    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
 </head>
-<body>
-  <!-- NAV -->
-  <nav aria-label="Main navigation">
-    <div class="brand">
-      <div class="logo" aria-hidden="true"><i class="fas fa-laptop-code" style="color:white"></i></div>
-      <div style="font-weight:800">Zubair</div>
-    </div>
+<body class="antialiased bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 transition-all duration-300">
 
-    <div class="navlinks" role="navigation" aria-label="Primary">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#certifications">Certs</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <div id="particles-js"></div>
 
-    <button class="mobile-toggle" aria-label="Open menu" id="menuBtn"><i class="fas fa-bars"></i></button>
-  </nav>
+    <!-- 3D Background Canvas -->
+    <canvas id="3d-canvas"></canvas>
 
-  <!-- HERO -->
-  <header id="home">
-    <!-- animated canvas background -->
-    <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-40 backdrop-blur-md border-b border-gray-200/20 dark:border-gray-700/20 transition-all duration-300 bg-white/80 dark:bg-gray-900/80" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-custom-cyan to-custom-blue rounded-lg flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-white text-lg"></i>
+                    </div>
+                    <div class="font-bold text-xl bg-gradient-to-r from-custom-cyan to-custom-blue bg-clip-text text-transparent">
+                        Zubair
+                    </div>
+                </div>
 
-    <div class="site-max hero-inner">
-      <div>
-        <div class="chip" style="width:max-content"><i class="fas fa-user-circle"></i> Available for new opportunities</div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link group relative px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan transition-all duration-300">
+                        <span class="flex items-center space-x-2">
+                            <i class="fas fa-home text-sm"></i>
+                            <span>Home</span>
+                        </span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-custom-cyan group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="#about" class="nav-link group relative px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan transition-all duration-300">
+                        <span class="flex items-center space-x-2">
+                            <i class="fas fa-user text-sm"></i>
+                            <span>About</span>
+                        </span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-custom-cyan group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="#skills" class="nav-link group relative px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan transition-all duration-300">
+                        <span class="flex items-center space-x-2">
+                            <i class="fas fa-cogs text-sm"></i>
+                            <span>Skills</span>
+                        </span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-custom-cyan group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="#experience" class="nav-link group relative px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan transition-all duration-300">
+                        <span class="flex items-center space-x-2">
+                            <i class="fas fa-briefcase text-sm"></i>
+                            <span>Experience</span>
+                        </span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-custom-cyan group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="#certifications" class="nav-link group relative px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan transition-all duration-300">
+                        <span class="flex items-center space-x-2">
+                            <i class="fas fa-certificate text-sm"></i>
+                            <span>Certifications</span>
+                        </span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-custom-cyan group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    <a href="#contact" class="nav-link group relative px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan transition-all duration-300">
+                        <span class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-sm"></i>
+                            <span>Contact</span>
+                        </span>
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-custom-cyan group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    
+                    <!-- CTA Button -->
+                    <a href="#contact" class="bg-gradient-to-r from-custom-cyan to-custom-blue text-white px-6 py-2 rounded-full font-medium hover:from-custom-blue hover:to-custom-cyan transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        Hire Me
+                    </a>
+                </div>
 
-        <h1 class="hero-title" style="margin-top:18px">
-          Hi, I'm <br>
-          Mohammad Zubair Siddiqi
-        </h1>
-
-        <div style="margin-top:14px">
-          <span id="typed" class="typewriter">Network Engineer & IT Professional</span>
-          <span style="color:rgba(230,238,248,0.6);margin-left:8px">| Fluent: English, Dari, Pashto</span>
-        </div>
-
-        <p class="hero-sub" style="margin-top:18px;max-width:720px">
-          Expert IT professional specializing in network engineering and system security with 99.9% uptime achievements and 30% efficiency gains. Experienced in Cisco routing & switching, BGP/EIGRP, cloud platforms, IT audits, and web development (PHP, Laravel).
-        </p>
-
-        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
-          <a class="btn-gradient" href="#experience">View My Experience <i class="fas fa-arrow-right" style="margin-left:8px"></i></a>
-          <a class="chip" href="https://drive.google.com/file/d/13lBSW5hvAe-BcjUWnFLuDZhyHSw7y2He/view?usp=drive_link" target="_blank"><i class="fas fa-download"></i> Download CV</a>
-          <a class="chip" href="#contact"><i class="fas fa-phone"></i> Get In Touch</a>
-        </div>
-
-        <div style="margin-top:20px;display:flex;gap:10px;align-items:center">
-          <a class="tag" href="https://www.linkedin.com/in/zubairsiddiqi10" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          <a class="tag" href="mailto:m.zubairsiddiqi1@gmail.com"><i class="fas fa-envelope"></i> m.zubairsiddiqi1@gmail.com</a>
-          <a class="tag" href="tel:+93783647080"><i class="fas fa-phone"></i> +93783647080</a>
-        </div>
-      </div>
-
-      <!-- right card -->
-      <aside class="hero-card hero-card" aria-hidden="false">
-        <div style="display:flex;gap:12px;align-items:center">
-          <div style="width:88px;height:88px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,var(--accent1),var(--accent2));display:grid;place-items:center">
-            <!-- Replace src if you have an image -->
-            <img src="Zubair .jpg" alt="Mohammad Zubair Siddiqi" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.style.display='none'">
-            <div id="photoFallback" style="display:none;color:#012;font-weight:800">ZS</div>
-          </div>
-          <div>
-            <div style="font-weight:800;font-size:18px;color:white">Mohammad Zubair Siddiqi</div>
-            <div style="color:rgba(230,238,248,0.7);font-weight:700;margin-top:6px">Network Engineer — SkillUp Consultancy</div>
-            <div style="margin-top:8px;color:rgba(230,238,248,0.6);font-size:13px">Chiefly focused on network security, cloud, IT audits, and web projects.</div>
-          </div>
-        </div>
-
-        <div style="margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:10px">
-            <div style="color:rgba(230,238,248,0.9);font-weight:800">Years Experience</div>
-            <div style="font-size:20px;font-weight:900;color:var(--accent1)">9+</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:10px">
-            <div style="color:rgba(230,238,248,0.9);font-weight:800">Network Uptime</div>
-            <div style="font-size:20px;font-weight:900;color:var(--accent2)">99.9%</div>
-          </div>
-        </div>
-
-        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
-          <a class="chip" href="https://skillup-af.com" target="_blank"><i class="fas fa-globe"></i> skillup-af.com</a>
-          <a class="chip" href="https://ojwa.org/" target="_blank"><i class="fas fa-globe"></i> ojwa.org</a>
-        </div>
-      </aside>
-    </div>
-
-    <!-- wave separator -->
-    <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path d="M0,32 C180,72 360,-8 720,28 C1080,64 1260,12 1440,36 L1440 80 L0 80 Z" fill="#021226" opacity="0.85" />
-    </svg>
-  </header>
-
-  <!-- MAIN -->
-  <main id="main" class="site-max">
-    <!-- ABOUT -->
-    <section id="about" class="reveal">
-      <div style="display:flex;gap:28px;align-items:center;flex-wrap:wrap">
-        <div style="flex:1;min-width:320px">
-          <div class="section-title">About Me</div>
-          <p class="lead">
-            Technology Leader & Innovation Expert. With 40% faster issue resolution and comprehensive project management expertise, I deliver transformative technology solutions.
-            My proactive initiatives include developing websites like skillup-af.com and ojwa.org using PHP, Laravel, and Vue.js, significantly enhancing digital presence for employers.
-          </p>
-
-          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
-            <span class="tag"><i class="fas fa-network-wired"></i> Networking & Systems</span>
-            <span class="tag"><i class="fas fa-cloud"></i> Cloud Platforms</span>
-            <span class="tag"><i class="fas fa-shield-alt"></i> Cybersecurity</span>
-            <span class="tag"><i class="fas fa-code"></i> Web Development</span>
-          </div>
-        </div>
-
-        <div style="width:360px;min-width:260px">
-          <div style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
-            <h4 style="font-weight:800">Core Expertise</h4>
-            <ul style="margin-top:10px;line-height:1.7;color:rgba(230,238,248,0.75)">
-              <li>Cisco routing, switching, firewalls & protocols (BGP, EIGRP)</li>
-              <li>OpenStack, Azure, AWS, Google Cloud</li>
-              <li>System audits, RBAC, VPNs, Security policy frameworks</li>
-              <li>PHP, Laravel, MySQL, JavaScript</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="reveal">
-      <div style="display:flex;justify-content:space-between;align-items:start;gap:20px;flex-wrap:wrap">
-        <div style="flex:1;min-width:320px">
-          <div class="section-title">Professional Skills & Expertise</div>
-          <p class="lead">Comprehensive technical expertise across networking, cloud platforms, cybersecurity, and web development.</p>
-
-          <div style="margin-top:18px">
-            <div style="margin-bottom:12px"><strong>Cisco (Routing, Switching, Firewalls)</strong></div>
-            <div class="skill-bar"><div class="skill-fill" data-fill="95%"></div></div>
-
-            <div style="margin-top:12px"><strong>BGP, EIGRP, STP, VLANs</strong></div>
-            <div class="skill-bar"><div class="skill-fill" data-fill="92%"></div></div>
-
-            <div style="margin-top:12px"><strong>Linux & Windows Server</strong></div>
-            <div class="skill-bar"><div class="skill-fill" data-fill="88%"></div></div>
-
-            <div style="margin-top:12px"><strong>PHP / Laravel / MySQL</strong></div>
-            <div class="skill-bar"><div class="skill-fill" data-fill="85%"></div></div>
-          </div>
-        </div>
-
-        <div style="width:380px;min-width:260px">
-          <div style="background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
-            <h4 style="font-weight:800">Security & Leadership</h4>
-            <p style="color:rgba(230,238,248,0.75)">Network Security, RBAC, System Audits, Team Development and mentoring with measurable performance improvements.</p>
-
-            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-              <span class="tag">Network Security 90%</span>
-              <span class="tag">RBAC & VPNs 88%</span>
-              <span class="tag">Team Leadership 95%</span>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                    <div class="w-6 h-6 flex flex-col justify-center items-center">
+                        <span class="block w-6 h-0.5 bg-current transform transition-all duration-300 menu-line-1"></span>
+                        <span class="block w-6 h-0.5 bg-current transform transition-all duration-300 mt-1 menu-line-2"></span>
+                        <span class="block w-6 h-0.5 bg-current transform transition-all duration-300 mt-1 menu-line-3"></span>
+                    </div>
+                </button>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="reveal">
-      <div>
-        <div class="section-title">Major Project Deliveries</div>
-        <p class="lead">Significant technology implementations and infrastructure improvements across multiple organizations.</p>
-
-        <div style="margin-top:18px" class="grid-3">
-          <article style="padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)">
-            <h4 style="font-weight:800">Business Website Project</h4>
-            <p style="color:rgba(230,238,248,0.78)">Developed a comprehensive website for a local business providing modern digital presence and improved customer engagement.</p>
-            <div style="margin-top:12px"><a href="https://skillup-af.com" target="_blank" class="tag">View Website</a></div>
-          </article>
-
-          <article style="padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)">
-            <h4 style="font-weight:800">OJWA Organization Website</h4>
-            <p style="color:rgba(230,238,248,0.78)">Developed official website for Organization of Justice Watch Afghanistan (OJWA) with modern design and information architecture.</p>
-            <div style="margin-top:12px"><a href="https://ojwa.org/" target="_blank" class="tag">View Website</a></div>
-          </article>
-
-          <article style="padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)">
-            <h4 style="font-weight:800">IT Audit & Security Solutions</h4>
-            <p style="color:rgba(230,238,248,0.78)">Developed IT audit checklists and security policy frameworks that enhanced organizational security posture and compliance.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="reveal">
-      <div>
-        <div class="section-title">Career Experience</div>
-        <p class="lead">9+ years of progressive growth in IT infrastructure, network management, and technology leadership.</p>
-
-        <div style="margin-top:18px" class="timeline">
-          <!-- item 1 -->
-          <div class="timeline-item">
-            <div style="font-weight:800;color:var(--accent1)">Jan 2025 - Present</div>
-            <h4 style="margin-top:6px;font-weight:800">Network Engineer</h4>
-            <div style="color:rgba(230,238,248,0.75);margin-top:6px;font-weight:700">Skill up Consultancy Services</div>
-            <p style="margin-top:8px;color:rgba(230,238,248,0.7)">Designing and maintaining advanced network infrastructures with Cisco equipment, optimizing performance through BGP/EIGRP, achieving 30% efficiency gains and 40% faster issue resolution using Wireshark diagnostics.</p>
-            <div style="margin-top:8px"><span class="tag">Cisco Infrastructure</span> <span class="tag">BGP/EIGRP</span></div>
-          </div>
-
-          <!-- item 2 -->
-          <div class="timeline-item">
-            <div style="font-weight:800;color:var(--accent2)">Jul 2023 - End of 2024</div>
-            <h4 style="margin-top:6px;font-weight:800">Head of Information System Audit & System Security</h4>
-            <div style="color:rgba(230,238,248,0.75);margin-top:6px;font-weight:700">Supreme Audit Office</div>
-            <p style="margin-top:8px;color:rgba(230,238,248,0.7)">Led IT audits for government agencies, improving M&E efficiency and conducting security audits for critical systems like Afghanistan Medical Council and Kabul Central Passport Department.</p>
-          </div>
-
-          <!-- item 3 -->
-          <div class="timeline-item">
-            <div style="font-weight:800;color:var(--accent3)">Jun 2022 - Jun 2023</div>
-            <h4 style="margin-top:6px;font-weight:800">IT Officer</h4>
-            <div style="color:rgba(230,238,248,0.75);margin-top:6px;font-weight:700">Organization of Justice Watch Afghanistan (OJWA)</div>
-            <p style="margin-top:8px;color:rgba(230,238,248,0.7)">Configured and maintained network infrastructure including Cisco equipment, deployed RBAC security measures ensuring smooth operations.</p>
-          </div>
-
-          <!-- more items -->
-          <div class="timeline-item">
-            <div style="font-weight:800;color:#46d">Oct 2021 - Mar 2022</div>
-            <h4 style="margin-top:6px;font-weight:800">Junior Network Engineer (Project-based)</h4>
-            <div style="color:rgba(230,238,248,0.75);margin-top:6px;font-weight:700">OJWA</div>
-            <p style="margin-top:8px;color:rgba(230,238,248,0.7)">Managed network infrastructure for 50+ users across 20 provinces; achieved 99.9% uptime by fixing VLAN misconfigurations and implementing STP protocols.</p>
-          </div>
-
-          <div class="timeline-item">
-            <div style="font-weight:800;color:#63f">Mar 2021 - Aug 2021</div>
-            <h4 style="margin-top:6px;font-weight:800">Teaching Assistant</h4>
-            <div style="color:rgba(230,238,248,0.75);margin-top:6px;font-weight:700">Computer Science Faculty, Nangarhar University</div>
-            <p style="margin-top:8px;color:rgba(230,238,248,0.7)">Delivered advanced network courses to 480 students across six departments with 96% student satisfaction rate.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certifications" class="reveal">
-      <div>
-        <div class="section-title">Training & Certifications</div>
-        <p class="lead">Continuous learning in cybersecurity, networking and cloud technologies.</p>
-
-        <div style="margin-top:18px" class="grid-3">
-          <div style="padding:18px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)">
-            <h4 style="font-weight:800">Certified Ethical Hacker (CEH)</h4>
-            <p style="color:rgba(230,238,248,0.75)">EC-Council Certification | In Progress — Advanced penetration testing methodologies.</p>
-          </div>
-
-          <div style="padding:18px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)">
-            <h4 style="font-weight:800">CCNA</h4>
-            <p style="color:rgba(230,238,248,0.75)">Cisco Certified Network Associate — practical networking & security fundamentals.</p>
-          </div>
-
-          <div style="padding:18px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)">
-            <h4 style="font-weight:800">TOEFL (Score: 97)</h4>
-            <p style="color:rgba(230,238,248,0.75)">English proficiency for international communication and collaboration.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ACHIEVEMENTS -->
-    <section id="achievements" class="reveal">
-      <div>
-        <div class="section-title">Achievements & Impact</div>
-        <p class="lead">Recognition for exceptional performance and contributions to technology advancement.</p>
-
-        <div style="margin-top:18px" class="grid-3">
-          <div style="padding:18px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);text-align:center">
-            <h4 style="font-weight:800">Network Excellence Award</h4>
-            <p style="color:rgba(230,238,248,0.75)">99.9% Network Uptime Achievement across OJWA locations.</p>
-          </div>
-
-          <div style="padding:18px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);text-align:center">
-            <h4 style="font-weight:800">Team Development</h4>
-            <p style="color:rgba(230,238,248,0.75)">40% IT proficiency improvement through mentorship and training programs.</p>
-          </div>
-
-          <div style="padding:18px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);text-align:center">
-            <h4 style="font-weight:800">Outstanding Educator</h4>
-            <p style="color:rgba(230,238,248,0.75)">96% student satisfaction rate at Nangarhar University.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="reveal">
-      <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:stretch">
-        <div style="flex:1;min-width:320px">
-          <div class="section-title">Contact</div>
-          <p class="lead">I'm available for new opportunities — freelance, contract, or full-time. Let's talk.</p>
-
-          <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
-            <div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:10px">Email: <a href="mailto:m.zubairsiddiqi1@gmail.com" style="color:var(--accent1)">m.zubairsiddiqi1@gmail.com</a></div>
-            <div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:10px">Phone: <a href="tel:+93783647080" style="color:var(--accent1)">+93783647080</a></div>
-            <div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:10px">LinkedIn: <a href="https://www.linkedin.com/in/zubairsiddiqi10" style="color:var(--accent1)" target="_blank">linkedin.com/in/zubairsiddiqi10</a></div>
-          </div>
         </div>
 
-        <div style="width:420px;min-width:260px">
-          <form id="contactForm" style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
-            <label style="display:block;font-weight:700;margin-bottom:8px">Send a message</label>
-            <input name="name" placeholder="Your name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-bottom:8px;background:transparent;color:inherit">
-            <input name="email" placeholder="Email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-bottom:8px;background:transparent;color:inherit">
-            <textarea name="message" placeholder="Message" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);min-height:120px;background:transparent;color:inherit"></textarea>
-            <div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end">
-              <button type="submit" class="btn-gradient">Send Message</button>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200/20 dark:border-gray-700/20 transform -translate-y-full opacity-0 transition-all duration-300 absolute top-full left-0 right-0 z-50" style="visibility: hidden;">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#home" class="mobile-nav-link block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">
+                    <i class="fas fa-home w-5"></i> Home
+                </a>
+                <a href="#about" class="mobile-nav-link block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">
+                    <i class="fas fa-user w-5"></i> About
+                </a>
+                <a href="#skills" class="mobile-nav-link block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">
+                    <i class="fas fa-cogs w-5"></i> Skills
+                </a>
+                <a href="#experience" class="mobile-nav-link block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">
+                    <i class="fas fa-briefcase w-5"></i> Experience
+                </a>
+                <a href="#certifications" class="mobile-nav-link block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">
+                    <i class="fas fa-certificate w-5"></i> Certifications
+                </a>
+                <a href="#achievements" class="mobile-nav-link block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">
+                    <i class="fas fa-trophy w-5"></i> Achievements
+                </a>
+                <a href="#activities" class="mobile-nav-link block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">
+                    <i class="fas fa-star w-5"></i> Activities
+                </a>
+                <a href="#contact" class="mobile-nav-link block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-custom-cyan dark:hover:text-custom-cyan hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">
+                    <i class="fas fa-envelope w-5"></i> Contact
+                </a>
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                    <a href="#contact" class="block w-full text-center bg-gradient-to-r from-custom-cyan to-custom-blue text-white px-6 py-3 rounded-full font-medium hover:from-custom-blue hover:to-custom-cyan transition-all duration-300">
+                        Hire Me
+                    </a>
+                </div>
             </div>
-            <p id="formHint" style="margin-top:8px;color:rgba(230,238,248,0.6);font-size:13px">(This form won't actually send — replace action with your backend endpoint.)</p>
-          </form>
         </div>
-      </div>
-    </section>
-  </main>
+    </nav>
 
-  <!-- FOOTER -->
-  <footer class="site-max">
-    <div style="display:flex;gap:12px;align-items:center"><strong style="color:white">Zubair</strong> <span style="color:rgba(230,238,248,0.6)">— Network Engineer • IT Auditor</span></div>
-    <div style="display:flex;gap:12px;align-items:center">
-      <a href="https://github.com/ZubairSiddiqi11/zubair-portfolio" target="_blank" class="tag"><i class="fab fa-github"></i> Repo</a>
-      <a href="https://zubairsiddiqi11.github.io/zubair-portfolio/" target="_blank" class="tag"><i class="fas fa-globe"></i> Live</a>
-    </div>
-  </footer>
+    <!-- Main Content -->
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <!-- 3D Background Canvas -->
+            <canvas id="hero-canvas" class="absolute inset-0 w-full h-full"></canvas>
+            
+            <!-- Animated Background Shapes -->
+            <div class="absolute inset-0">
+                <div class="absolute top-20 left-10 w-72 h-72 bg-custom-cyan/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
+                <div class="absolute top-40 right-10 w-72 h-72 bg-custom-blue/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 2s;"></div>
+                <div class="absolute -bottom-8 left-20 w-72 h-72 bg-custom-purple/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 4s;"></div>
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+                <div class="space-y-6 animate-on-scroll animate-in">
+                    <!-- Main Heading -->
+                    <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold">
+                        <span class="block text-gray-900 dark:text-white mb-2">Hi, I'm</span>
+                        <span class="block bg-gradient-to-r from-custom-cyan via-custom-blue to-custom-purple bg-clip-text text-transparent text-responsive">
+                            Mohammad Zubair Siddiqi
+                        </span>
+                    </h1>
+                    
+                    <!-- Typewriter Effect -->
+                    <div class="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 h-8 flex items-center justify-center">
+                        <span id="typewriter" class="font-mono">Network Engineer & IT Professional</span>
+                        <span class="animate-pulse ml-1">|</span>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+                        Expert IT professional specializing in network engineering and system security with 99.9% uptime achievements and 30% efficiency gains. Fluent in English (TOEFL iBT 97), Dari, and Pashto.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col gap-4 justify-center items-center pt-8 w-full max-w-md mx-auto">
+                        <a href="#experience" class="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-custom-cyan to-custom-blue text-white font-semibold rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden text-center">
+                            <span class="relative z-10 flex items-center justify-center space-x-2">
+                                <span>View My Experience</span>
+                                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+                            </span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-custom-blue to-custom-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </a>
+                        
+                        <!-- CV Download Button -->
+                        <a href="https://drive.google.com/file/d/13lBSW5hvAe-BcjUWnFLuDZhyHSw7y2He/view?usp=drive_link" target="_blank" class="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden text-center">
+                            <span class="relative z-10 flex items-center justify-center space-x-2">
+                                <i class="fas fa-download"></i>
+                                <span>Download CV</span>
+                            </span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-green-600 to-green-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </a>
+                        
+                        <a href="#contact" class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-full hover:border-custom-cyan hover:text-custom-cyan dark:hover:border-custom-cyan dark:hover:text-custom-cyan transform hover:scale-105 transition-all duration-300 text-center">
+                            <span class="flex items-center justify-center space-x-2">
+                                <span>Get In Touch</span>
+                                <i class="fas fa-phone"></i>
+                            </span>
+                        </a>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="flex justify-center items-center gap-6 pt-6">
+                        <a href="https://www.linkedin.com/in/zubairsiddiqi10" target="_blank" class="group w-12 h-12 bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transform hover:scale-110 transition-all duration-300 shadow-lg">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="mailto:m.zubairsiddiqi1@gmail.com" class="group w-12 h-12 bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transform hover:scale-110 transition-all duration-300 shadow-lg">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                        <a href="tel:+93783647080" class="group w-12 h-12 bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 transform hover:scale-110 transition-all duration-300 shadow-lg">
+                            <i class="fas fa-phone text-xl"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="pt-12">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Available for new opportunities</p>
+                        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 opacity-60">
+                            <div class="text-sm sm:text-lg font-semibold text-gray-400 text-center">
+                                <i class="fas fa-envelope mr-2"></i>
+                                <span class="break-all">m.zubairsiddiqi1@gmail.com</span>
+                            </div>
+                            <div class="text-sm sm:text-lg font-semibold text-gray-400 text-center">
+                                <i class="fas fa-phone mr-2"></i>
+                                +93783647080
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+         
+        </section>
 
-  <!-- SCRIPTS -->
-  <script>
-    /* ======== Basic utilities ======== */
-    const $ = (sel, scope=document)=> scope.querySelector(sel);
-    const $$ = (sel, scope=document)=> Array.from(scope.querySelectorAll(sel));
+        <!-- About Section -->
+        <section id="about" class="py-20 lg:py-32 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <!-- Content -->
+                    <div class="animate-on-scroll animate-in">
+                        <div class="inline-flex items-center px-4 py-2 bg-custom-cyan/10 dark:bg-custom-cyan/20 rounded-full text-custom-cyan dark:text-custom-cyan text-sm font-medium mb-6">
+                            <i class="fas fa-user mr-2"></i>
+                            About Me
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                            Technology Leader &
+                            <span class="bg-gradient-to-r from-custom-cyan to-custom-blue bg-clip-text text-transparent">Innovation Expert</span>
+                        </h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                            With 40% faster issue resolution and comprehensive project management expertise, I deliver transformative technology solutions. My proactive initiatives include developing websites like skillup-af.com and ojwa.org using PHP, Laravel, and Vue.js, significantly enhancing digital presence for employers.
+                        </p>
+                        
+                        <!-- Features -->
+                        <div class="space-y-6">
+                            <!-- CV SECTION: Replace with your exact skills/expertise from CV -->
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-custom-cyan to-custom-blue rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-network-wired text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Networking & Systems</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">Expert in Cisco routing, switching, firewalls, BGP, EIGRP, VLANs, and Windows Server administration.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-custom-blue to-custom-purple rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-cloud text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Cloud Platforms</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">Experienced with OpenStack, Microsoft Azure, AWS, and Google Cloud platforms.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-custom-purple to-custom-cyan rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-shield-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Cybersecurity & Development</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">Skilled in network security, RBAC, VPNs, system audits, plus web development with PHP, Laravel, and MySQL.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile Photo -->
+                    <div class="relative animate-on-scroll animate-in">
+                        <div class="relative">
+                            <!-- Main Photo Container -->
+                            <div class="w-full max-w-md mx-auto">
+                                <div class="relative">
+                                    <!-- Photo Frame -->
+                                    <div class="w-80 h-80 mx-auto rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-custom-cyan/20 to-custom-blue/20 border-4 border-white dark:border-gray-800">
+                                        <!-- Replace this with your actual photo -->
+                                        <img src="Zubair .jpg" 
+                                             alt="Mohammad Zubair Siddiqi" 
+                                             class="w-full h-full object-cover"
+                                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                        <!-- Fallback if image doesn't load -->
+                                        <div class="w-full h-full bg-gradient-to-br from-custom-cyan/30 to-custom-blue/30 flex items-center justify-center" style="display:none;">
+                                            <div class="text-center text-white">
+                                                <i class="fas fa-user text-6xl mb-4 opacity-60"></i>
+                                                <p class="text-lg font-semibold">Mohammad Zubair Siddiqi</p>
+                                                <p class="text-sm opacity-80">Chief Technology Officer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Decorative Elements -->
+                                    <div class="absolute -top-4 -right-4 w-16 h-16 bg-custom-cyan rounded-full flex items-center justify-center animate-float shadow-lg">
+                                        <i class="fas fa-laptop-code text-white text-lg"></i>
+                                    </div>
+                                    <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-custom-blue rounded-full flex items-center justify-center animate-float shadow-lg" style="animation-delay: 1s;">
+                                        <i class="fas fa-shield-alt text-white text-sm"></i>
+                                    </div>
+                                    <div class="absolute top-1/2 -right-6 w-8 h-8 bg-custom-purple rounded-full flex items-center justify-center animate-float shadow-lg" style="animation-delay: 2s;">
+                                        <i class="fas fa-network-wired text-white text-xs"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- Professional Stats -->
+                                <div class="mt-8 grid grid-cols-2 gap-4">
+                                    <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+                                        <div class="text-2xl font-bold text-custom-cyan">9+</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-300">Years Experience</div>
+                                    </div>
+                                    <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+                                        <div class="text-2xl font-bold text-custom-blue">99.9%</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-300">Network Uptime</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    /* ======== Mobile menu (simple) ======== */
-    const menuBtn = $('#menuBtn');
-    if(menuBtn){
-      menuBtn.addEventListener('click', ()=>{
-        const links = document.querySelector('.navlinks');
-        if(links.style.display === 'flex'){ links.style.display='none'; menuBtn.innerHTML = '<i class="fas fa-bars"></i>'}
-        else { links.style.display='flex'; links.style.flexDirection='column'; menuBtn.innerHTML = '<i class="fas fa-times"></i>'}
-      });
-    }
 
-    /* ======== Typewriter effect ======== */
-    const typedEl = document.getElementById('typed');
-    const phrases = [
-      'Network Engineer & IT Professional',
-      'Head of IT System Audit & Security',
-      'Web & Cloud Developer (PHP, Laravel)',
-      'Certified: TOEFL 97 — CCNA, CEH (in progress)'
-    ];
-    let pIdx=0, ch=0, direction=1;
-    function tick(){
-      const full = phrases[pIdx];
-      typedEl.textContent = full.slice(0,ch);
-      ch += direction;
-      if(ch > full.length+8){ direction = -1; }
-      if(ch < 0){ direction = 1; pIdx = (pIdx+1) % phrases.length; ch = 0; }
-      setTimeout(tick, 40);
-    }
-    tick();
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll animate-in">
+                    <div class="inline-flex items-center px-4 py-2 bg-custom-cyan/10 dark:bg-custom-cyan/20 rounded-full text-custom-cyan dark:text-custom-cyan text-sm font-medium mb-6">
+                        <i class="fas fa-cogs mr-2"></i>
+                        Technical Expertise
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                        Professional
+                        <span class="bg-gradient-to-r from-custom-cyan to-custom-blue bg-clip-text text-transparent">Skills & Expertise</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Comprehensive technical expertise across networking, cloud platforms, cybersecurity, and web development
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                    <!-- Networking & Systems -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="w-16 h-16 bg-gradient-to-r from-custom-cyan to-custom-blue rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-network-wired text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Networking & Systems</h3>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Cisco (Routing, Switching, Firewalls)</span>
+                                    <span class="text-sm font-bold text-custom-cyan">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-custom-cyan to-custom-blue h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">BGP, EIGRP, STP, VTP, RSTP</span>
+                                    <span class="text-sm font-bold text-custom-cyan">92%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-custom-cyan to-custom-blue h-2 rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">VLANs & Wireshark</span>
+                                    <span class="text-sm font-bold text-custom-cyan">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-custom-cyan to-custom-blue h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Linux & Windows Server</span>
+                                    <span class="text-sm font-bold text-custom-cyan">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-custom-cyan to-custom-blue h-2 rounded-full" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cloud Platforms -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="w-16 h-16 bg-gradient-to-r from-custom-blue to-custom-purple rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-cloud text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Cloud Platforms</h3>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">OpenStack</span>
+                                    <span class="text-sm font-bold text-custom-blue">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-custom-blue to-custom-purple h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Microsoft Azure</span>
+                                    <span class="text-sm font-bold text-custom-blue">80%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-custom-blue to-custom-purple h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">AWS</span>
+                                    <span class="text-sm font-bold text-custom-blue">78%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-custom-blue to-custom-purple h-2 rounded-full" style="width: 78%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Google Cloud</span>
+                                    <span class="text-sm font-bold text-custom-blue">75%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-custom-blue to-custom-purple h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Web & Databases -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="w-16 h-16 bg-gradient-to-r from-custom-purple to-green-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Web & Databases</h3>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">PHP</span>
+                                    <span class="text-sm font-bold text-custom-purple">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-custom-purple to-green-500 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Laravel</span>
+                                    <span class="text-sm font-bold text-custom-purple">82%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-custom-purple to-green-500 h-2 rounded-full" style="width: 82%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">JavaScript</span>
+                                    <span class="text-sm font-bold text-custom-purple">80%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-custom-purple to-green-500 h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">MySQL & SEO</span>
+                                    <span class="text-sm font-bold text-custom-purple">78%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-custom-purple to-green-500 h-2 rounded-full" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cybersecurity & Soft Skills -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-shield-alt text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Security & Leadership</h3>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Network Security</span>
+                                    <span class="text-sm font-bold text-red-500">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-red-500 to-orange-500 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">RBAC, ACLs, VPNs</span>
+                                    <span class="text-sm font-bold text-red-500">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-red-500 to-orange-500 h-2 rounded-full" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">System Security Audits</span>
+                                    <span class="text-sm font-bold text-red-500">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-red-500 to-orange-500 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Leadership & Communication</span>
+                                    <span class="text-sm font-bold text-red-500">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-red-500 to-orange-500 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    /* ======== Reveal on scroll ======== */
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, {threshold:0.12});
-    $$('.reveal').forEach(el=> io.observe(el));
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 lg:py-32 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll animate-in">
+                    <div class="inline-flex items-center px-4 py-2 bg-custom-blue/10 dark:bg-custom-blue/20 rounded-full text-custom-blue dark:text-custom-blue text-sm font-medium mb-6">
+                        <i class="fas fa-project-diagram mr-2"></i>
+                        Key Achievements
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                        Major
+                        <span class="bg-gradient-to-r from-custom-blue to-custom-purple bg-clip-text text-transparent">Project Deliveries</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Significant technology implementations and infrastructure improvements across multiple organizations
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Website Project 1 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 transform hover:scale-105 transition-all duration-300">
+                        <div class="h-48 bg-gradient-to-br from-custom-cyan/20 to-custom-blue/20 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-gradient-to-r from-custom-cyan to-custom-blue rounded-full flex items-center justify-center">
+                                <i class="fas fa-globe text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Business Website Project</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                                Developed a comprehensive website for a local business, providing a modern digital presence and improved customer engagement platform.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Web Development</span>
+                                <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Business Solutions</span>
+                                <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Digital Presence</span>
+                                <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Customer Engagement</span>
+                            </div>
+                            <a href="https://skillup-af.com" target="_blank" class="inline-flex items-center space-x-2 text-custom-cyan hover:text-custom-blue transition-colors duration-300 font-medium">
+                                <span>View Website</span>
+                                <i class="fas fa-external-link-alt text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Website Project 2 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 transform hover:scale-105 transition-all duration-300">
+                        <div class="h-48 bg-gradient-to-br from-green-500/20 to-blue-500/20 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-balance-scale text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">OJWA Organization Website</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                                Developed the official website for Organization of Justice Watch Afghanistan (OJWA), a non-profit organization focused on justice and transparency advocacy with modern design and comprehensive information architecture.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-green-500/10 text-green-600 text-xs rounded-full">Organizational Website</span>
+                                <span class="px-3 py-1 bg-green-500/10 text-green-600 text-xs rounded-full">Non-Profit</span>
+                                <span class="px-3 py-1 bg-green-500/10 text-green-600 text-xs rounded-full">Justice Advocacy</span>
+                                <span class="px-3 py-1 bg-green-500/10 text-green-600 text-xs rounded-full">Professional Design</span>
+                            </div>
+                            <a href="https://ojwa.org/" target="_blank" class="inline-flex items-center space-x-2 text-green-600 hover:text-green-700 transition-colors duration-300 font-medium">
+                                <span>View Website</span>
+                                <i class="fas fa-external-link-alt text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Combined IT Projects -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 transform hover:scale-105 transition-all duration-300">
+                        <div class="h-48 bg-gradient-to-br from-custom-purple/20 to-red-500/20 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-gradient-to-r from-custom-purple to-red-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-shield-alt text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">IT Audit & Security Solutions</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                                Developed comprehensive IT audit checklist for systematic evaluation of information systems and created robust IT security policies to enhance organizational security posture and ensure compliance with industry standards.
+                            </p>
+                            <div class="space-y-3 mb-4">
+                                <div class="flex items-start space-x-2">
+                                    <i class="fas fa-clipboard-check text-custom-purple mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white text-sm">Audit Checklist Development</h4>
+                                        <p class="text-xs text-gray-600 dark:text-gray-300">Systematic IT audit evaluation framework</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-2">
+                                    <i class="fas fa-shield-alt text-red-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white text-sm">Security Policy Framework</h4>
+                                        <p class="text-xs text-gray-600 dark:text-gray-300">Comprehensive security standards and compliance</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-custom-purple/10 text-custom-purple text-xs rounded-full">IT Audit</span>
+                                <span class="px-3 py-1 bg-custom-purple/10 text-custom-purple text-xs rounded-full">Security Policy</span>
+                                <span class="px-3 py-1 bg-red-500/10 text-red-600 text-xs rounded-full">Compliance</span>
+                                <span class="px-3 py-1 bg-red-500/10 text-red-600 text-xs rounded-full">Risk Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    /* Skill fill animation */
-    function animateSkillFills(){
-      $$('.skill-fill').forEach(el=>{
-        const to = el.getAttribute('data-fill') || '80%';
-        el.style.transform = 'translateX(0)';
-        el.style.width = to;
-        // set initial transform to negative so it animates via CSS transition
-        el.style.transform = 'translateX(0)';
-      });
-    }
-    // wait a bit after load
-    setTimeout(animateSkillFills, 700);
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll animate-in">
+                    <div class="inline-flex items-center px-4 py-2 bg-custom-purple/10 dark:bg-custom-purple/20 rounded-full text-custom-purple dark:text-custom-purple text-sm font-medium mb-6">
+                        <i class="fas fa-briefcase mr-2"></i>
+                        Professional Journey
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                        Career
+                        <span class="bg-gradient-to-r from-custom-purple to-custom-cyan bg-clip-text text-transparent">Experience</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        9+ years of progressive growth in IT infrastructure, network management, and technology leadership
+                    </p>
+                </div>
+                
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-custom-cyan via-custom-blue to-custom-purple"></div>
+                    
+                    <div class="space-y-12">
+                        <!-- Experience 1 -->
+                        <div class="animate-on-scroll animate-in relative flex items-center">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-custom-cyan to-custom-blue rounded-full flex items-center justify-center relative z-10 border-4 border-white dark:border-gray-900">
+                                <i class="fas fa-network-wired text-white text-lg"></i>
+                            </div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pr-8">
+                                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                    <div class="text-sm text-custom-cyan font-semibold mb-2">Jan 2025 - Present</div>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Network Engineer</h3>
+                                    <h4 class="text-custom-blue font-medium mb-3">Skill up Consultancy Services</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                                        Designing and maintaining advanced network infrastructures with Cisco equipment, optimizing performance through complex routing protocols (BGP, EIGRP) achieving 30% efficiency gains and 40% faster issue resolution using Wireshark diagnostics.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Cisco Infrastructure</span>
+                                        <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">BGP/EIGRP</span>
+                                        <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Network Security</span>
+                                        <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Wireshark</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience 2 -->
+                        <div class="animate-on-scroll animate-in relative flex items-center md:flex-row-reverse">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-custom-blue to-custom-purple rounded-full flex items-center justify-center relative z-10 border-4 border-white dark:border-gray-900">
+                                <i class="fas fa-shield-alt text-white text-lg"></i>
+                            </div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pl-8">
+                                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                    <div class="text-sm text-custom-blue font-semibold mb-2">Jul 2023 - End of 2024</div>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Head of Information System Audit & System Security</h3>
+                                    <h4 class="text-custom-blue font-medium mb-3">Supreme Audit Office</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                                        Led comprehensive IT audits for government agencies, enhancing M&E processes by 20% efficiency and conducting targeted security audits for critical systems like Afghanistan Medical Council and Kabul Central Passport Department.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-custom-blue/10 text-custom-blue text-xs rounded-full">System Audits</span>
+                                        <span class="px-3 py-1 bg-custom-blue/10 text-custom-blue text-xs rounded-full">Compliance</span>
+                                        <span class="px-3 py-1 bg-custom-blue/10 text-custom-blue text-xs rounded-full">Cyber Security</span>
+                                        <span class="px-3 py-1 bg-custom-blue/10 text-custom-blue text-xs rounded-full">M&E Processes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience 3 -->
+                        <div class="animate-on-scroll animate-in relative flex items-center">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-custom-purple to-custom-cyan rounded-full flex items-center justify-center relative z-10 border-4 border-white dark:border-gray-900">
+                                <i class="fas fa-desktop text-white text-lg"></i>
+                            </div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pr-8">
+                                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                    <div class="text-sm text-custom-purple font-semibold mb-2">Jun 2022 - Jun 2023</div>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">IT Officer</h3>
+                                    <h4 class="text-custom-purple font-medium mb-3">Organization of Justice Watch Afghanistan (OJWA)</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                                        Configured and maintained comprehensive network infrastructure including Cisco equipment, optimized performance through BGP/EIGRP protocols, and deployed RBAC security measures ensuring seamless operations across the organization.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-custom-purple/10 text-custom-purple text-xs rounded-full">Network Management</span>
+                                        <span class="px-3 py-1 bg-custom-purple/10 text-custom-purple text-xs rounded-full">Cisco Equipment</span>
+                                        <span class="px-3 py-1 bg-custom-purple/10 text-custom-purple text-xs rounded-full">RBAC Security</span>
+                                        <span class="px-3 py-1 bg-custom-purple/10 text-custom-purple text-xs rounded-full">DNS/DHCP</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience 4 -->
+                        <div class="animate-on-scroll animate-in relative flex items-center md:flex-row-reverse">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center relative z-10 border-4 border-white dark:border-gray-900">
+                                <i class="fas fa-network-wired text-white text-lg"></i>
+                            </div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pl-8">
+                                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                    <div class="text-sm text-green-600 font-semibold mb-2">Oct 2021 - Mar 2022</div>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Junior Network Engineer (Project-based)</h3>
+                                    <h4 class="text-green-600 font-medium mb-3">Organization of Justice Watch Afghanistan (OJWA)</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                                        Managed network infrastructure for 50+ users across 20 provinces, achieved 99.9% uptime by resolving VLAN misconfigurations and implementing STP protocols, improving network performance by 60%.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-green-500/10 text-green-600 text-xs rounded-full">Multi-Province Network</span>
+                                        <span class="px-3 py-1 bg-green-500/10 text-green-600 text-xs rounded-full">VLAN Configuration</span>
+                                        <span class="px-3 py-1 bg-green-500/10 text-green-600 text-xs rounded-full">99.9% Uptime</span>
+                                        <span class="px-3 py-1 bg-green-500/10 text-green-600 text-xs rounded-full">STP Protocols</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience 5 -->
+                        <div class="animate-on-scroll animate-in relative flex items-center">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center relative z-10 border-4 border-white dark:border-gray-900">
+                                <i class="fas fa-graduation-cap text-white text-lg"></i>
+                            </div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pr-8">
+                                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                    <div class="text-sm text-blue-600 font-semibold mb-2">Mar 2021 - Aug 2021</div>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Teaching Assistant</h3>
+                                    <h4 class="text-blue-600 font-medium mb-3">Computer Science Faculty, Nangarhar University</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                                        Delivered advanced network courses to 480 students across six departments, achieved 96% student satisfaction rate through innovative teaching methods and successfully adapted curricula for online instruction during Covid-19.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-blue-500/10 text-blue-600 text-xs rounded-full">Network Protocols</span>
+                                        <span class="px-3 py-1 bg-blue-500/10 text-blue-600 text-xs rounded-full">Cybersecurity</span>
+                                        <span class="px-3 py-1 bg-blue-500/10 text-blue-600 text-xs rounded-full">96% Satisfaction</span>
+                                        <span class="px-3 py-1 bg-blue-500/10 text-blue-600 text-xs rounded-full">Online Teaching</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    /* Contact form (placeholder) */
-    $('#contactForm').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      alert('Thanks — message captured (placeholder). Replace form action with backend to enable sending.');
-    });
+        <!-- Training & Certifications Section -->
+        <section id="certifications" class="py-20 lg:py-32 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll animate-in">
+                    <div class="inline-flex items-center px-4 py-2 bg-green-500/10 dark:bg-green-500/20 rounded-full text-green-600 dark:text-green-400 text-sm font-medium mb-6">
+                        <i class="fas fa-certificate mr-2"></i>
+                        Professional Development
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                        Training &
+                        <span class="bg-gradient-to-r from-green-500 to-custom-cyan bg-clip-text text-transparent">Certifications</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Continuous learning and professional development in cutting-edge technologies
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Certification 1 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-shield-alt text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">Certified Ethical Hacker (CEH)</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">EC-Council Certification | In Progress</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Advanced cybersecurity certification focusing on ethical hacking methodologies and penetration testing techniques.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Certification 2 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-custom-cyan to-custom-blue rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-network-wired text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">Cisco Certified Network Associate (CCNA)</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Cisco Systems | Practical Experience</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Comprehensive networking certification covering routing, switching, and network security fundamentals.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Certification 3 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-cloud text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">Cloud Computing Fundamentals</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">AWS & Azure Platforms | Self-Study</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Cloud infrastructure, virtualization, and scalable solution deployment across major platforms.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Certification 4 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-globe text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">TOEFL English Proficiency</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Score: 97/120 | Educational Testing Service</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Advanced English proficiency certification for international communication and collaboration.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    /* ======== Animated background canvas (particles + smooth nebula) ======== */
-    const canvas = document.getElementById('bgCanvas');
-    const ctx = canvas.getContext('2d');
-    let W = canvas.width = innerWidth;
-    let H = canvas.height = innerHeight;
-    window.addEventListener('resize', ()=>{ W = canvas.width = innerWidth; H = canvas.height = innerHeight; });
+        <!-- Awards & Achievements Section -->
+        <section id="achievements" class="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll animate-in">
+                    <div class="inline-flex items-center px-4 py-2 bg-yellow-500/10 dark:bg-yellow-500/20 rounded-full text-yellow-600 dark:text-yellow-400 text-sm font-medium mb-6">
+                        <i class="fas fa-trophy mr-2"></i>
+                        Recognition & Impact
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                        Awards &
+                        <span class="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">Achievements</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Recognition for exceptional performance and significant contributions to technology advancement
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Achievement 1 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-network-wired text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Network Excellence Award</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">99.9% Network Uptime Achievement</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Maintained exceptional network reliability across all OJWA locations, exceeding industry standards.</p>
+                    </div>
+                    
+                    <!-- Achievement 2 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Team Development Excellence</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">40% IT Proficiency Improvement</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Successfully enhanced team capabilities through comprehensive training and mentorship programs.</p>
+                    </div>
+                    
+                    <!-- Achievement 3 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-graduation-cap text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Outstanding Educator</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">96% Student Satisfaction Rate</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Achieved exceptional teaching results at Nangarhar University with 480 students across 6 departments.</p>
+                    </div>
+                    
+                    <!-- Achievement 4 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-custom-cyan to-custom-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-shield-alt text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Security Implementation</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">50% Reduction in Security Incidents</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Implemented robust security protocols across 20 provinces, significantly reducing unauthorized access.</p>
+                    </div>
+                    
+                    <!-- Achievement 5 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-rocket text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Innovation Leadership</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">30% Efficiency Improvement</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Led digital transformation initiatives resulting in significant operational efficiency gains.</p>
+                    </div>
+                    
+                    <!-- Achievement 6 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-globe text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Multi-Province Expansion</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">20 Provinces Connected</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Successfully expanded network infrastructure across multiple provinces with seamless connectivity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    // particles
-    const num = Math.floor((innerWidth+innerHeight)/80);
-    const particles = [];
-    for(let i=0;i<num;i++){
-      particles.push({
-        x: Math.random()*W,
-        y: Math.random()*H,
-        r: 0.8 + Math.random()*2.8,
-        vx: (Math.random()-0.5)*0.3,
-        vy: (Math.random()-0.5)*0.3,
-        hue: 180 + Math.random()*200
-      })
-    }
+        <!-- Extra-curricular Activities Section -->
+        <section id="activities" class="py-20 lg:py-32 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll animate-in">
+                    <div class="inline-flex items-center px-4 py-2 bg-purple-500/10 dark:bg-purple-500/20 rounded-full text-purple-600 dark:text-purple-400 text-sm font-medium mb-6">
+                        <i class="fas fa-star mr-2"></i>
+                        Beyond Work
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                        Extra-curricular
+                        <span class="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Activities</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Community involvement, leadership roles, and personal interests that drive continuous growth
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Activity 1 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-chalkboard-teacher text-white text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Technology Mentorship</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Actively mentor junior IT professionals and university students in networking technologies, 
+                                    career development, and professional growth. Conducted workshops and one-on-one sessions 
+                                    helping over 50+ individuals advance their careers.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-purple-500/10 text-purple-600 text-xs rounded-full">Mentorship</span>
+                                    <span class="px-3 py-1 bg-purple-500/10 text-purple-600 text-xs rounded-full">Workshops</span>
+                                    <span class="px-3 py-1 bg-purple-500/10 text-purple-600 text-xs rounded-full">Career Guidance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Activity 2 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-users text-white text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Community Tech Support</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Volunteer technical support for local educational institutions and non-profit organizations. 
+                                    Helped establish IT infrastructure for schools and community centers, providing free 
+                                    consultation and technical assistance.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-500/10 text-blue-600 text-xs rounded-full">Volunteer Work</span>
+                                    <span class="px-3 py-1 bg-blue-500/10 text-blue-600 text-xs rounded-full">IT Setup</span>
+                                    <span class="px-3 py-1 bg-blue-500/10 text-blue-600 text-xs rounded-full">Education Support</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Activity 3 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-book-open text-white text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Continuous Learning</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Passionate about staying current with emerging technologies. Regularly participate in 
+                                    online courses, tech conferences, and professional development programs. Active member 
+                                    of technology forums and networking communities.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-500/10 text-green-600 text-xs rounded-full">Self-Learning</span>
+                                    <span class="px-3 py-1 bg-green-500/10 text-green-600 text-xs rounded-full">Tech Forums</span>
+                                    <span class="px-3 py-1 bg-green-500/10 text-green-600 text-xs rounded-full">Conferences</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Activity 4 -->
+                    <div class="animate-on-scroll animate-in bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-custom-cyan to-custom-blue rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-language text-white text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Multilingual Communication</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Fluent in Pashto (native), Dari, and English (TOEFL iBT 97 Score). This linguistic diversity 
+                                    enables effective communication across different cultural contexts and international 
+                                    collaboration in technology projects.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Pashto (Native)</span>
+                                    <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Dari (Fluent)</span>
+                                    <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">English (Advanced)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    function draw(){
-      ctx.clearRect(0,0,W,H);
-      // subtle gradient nebula background
-      const g = ctx.createLinearGradient(0,0,W,H);
-      g.addColorStop(0, 'rgba(3,10,24,0.75)');
-      g.addColorStop(0.45, 'rgba(6,18,32,0.55)');
-      g.addColorStop(1, 'rgba(2,8,18,0.85)');
-      ctx.fillStyle = g;
-      ctx.fillRect(0,0,W,H);
+        <!-- Education Section -->
+        <section id="education" class="py-20 lg:py-32 bg-gray-50 dark:bg-gray-900 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll animate-in">
+                    <div class="inline-flex items-center px-4 py-2 bg-custom-blue/10 dark:bg-custom-blue/20 rounded-full text-custom-blue dark:text-custom-blue text-sm font-medium mb-6">
+                        <i class="fas fa-graduation-cap mr-2"></i>
+                        Academic Background
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                        Educational
+                        <span class="bg-gradient-to-r from-custom-blue to-custom-purple bg-clip-text text-transparent">Journey</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Academic foundation in computer science and technology
+                    </p>
+                </div>
+                
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-custom-cyan via-custom-blue to-custom-purple"></div>
+                    
+                    <div class="space-y-12">
+                        <!-- Education 1 - Master's Degree -->
+                        <div class="animate-on-scroll animate-in relative flex items-center">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-custom-cyan to-custom-blue rounded-full flex items-center justify-center relative z-10 border-4 border-white dark:border-gray-900">
+                                <i class="fas fa-graduation-cap text-white text-lg"></i>
+                            </div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pr-8">
+                                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                    <div class="text-sm text-custom-cyan font-semibold mb-2">Mar 2025 - Present</div>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Master of Science in Cyber Security</h3>
+                                    <h4 class="text-custom-blue font-medium mb-3">Jiangxi Science and Technology Normal University</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                                        Advanced cybersecurity education focusing on network security, threat analysis, digital forensics, and security architecture design. Online program offering comprehensive coverage of modern cybersecurity challenges and solutions.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Cyber Security</span>
+                                        <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Network Security</span>
+                                        <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Digital Forensics</span>
+                                        <span class="px-3 py-1 bg-custom-cyan/10 text-custom-cyan text-xs rounded-full">Online Learning</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Education 2 - Bachelor's Degree -->
+                        <div class="animate-on-scroll animate-in relative flex items-center md:flex-row-reverse">
+                            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-custom-blue to-custom-purple rounded-full flex items-center justify-center relative z-10 border-4 border-white dark:border-gray-900">
+                                <i class="fas fa-university text-white text-lg"></i>
+                            </div>
+                            <div class="ml-8 md:ml-0 md:w-1/2 md:pl-8">
+                                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                    <div class="text-sm text-custom-blue font-semibold mb-2">Sep 2017 - Feb 2021</div>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Bachelor of Computer Science</h3>
+                                    <h4 class="text-custom-blue font-medium mb-3">Nangarhar University</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                                        Comprehensive computer science foundation covering programming fundamentals, data structures, algorithms, software engineering, and system analysis. Strong emphasis on practical application and problem-solving skills.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-custom-blue/10 text-custom-blue text-xs rounded-full">Computer Science</span>
+                                        <span class="px-3 py-1 bg-custom-blue/10 text-custom-blue text-xs rounded-full">Programming</span>
+                                        <span class="px-3 py-1 bg-custom-blue/10 text-custom-blue text-xs rounded-full">Software Engineering</span>
+                                        <span class="px-3 py-1 bg-custom-blue/10 text-custom-blue text-xs rounded-full">Data Structures</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      // glow blobs (nebula)
-      const blobs = [
-        {x: W*0.15, y: H*0.2, r: Math.min(W,H)*0.4, c:'rgba(0,245,255,0.06)'},
-        {x: W*0.85, y: H*0.25, r: Math.min(W,H)*0.33, c:'rgba(0,128,255,0.06)'},
-        {x: W*0.6, y: H*0.72, r: Math.min(W,H)*0.45, c:'rgba(139,92,246,0.04)'}
-      ];
-      blobs.forEach(b=>{
-        const bg = ctx.createRadialGradient(b.x,b.y,b.r*0.02,b.x,b.y,b.r);
-        bg.addColorStop(0, b.c);
-        bg.addColorStop(1, 'rgba(2,6,15,0)');
-        ctx.fillStyle = bg;
-        ctx.beginPath();
-        ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
-        ctx.fill();
-      });
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 lg:py-32 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll animate-in">
+                    <div class="inline-flex items-center px-4 py-2 bg-green-500/10 dark:bg-green-500/20 rounded-full text-green-600 dark:text-green-400 text-sm font-medium mb-6">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Get In Touch
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                        Let's Work
+                        <span class="bg-gradient-to-r from-green-500 to-custom-cyan bg-clip-text text-transparent">Together</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Available for Chief Information Officer positions, network infrastructure projects, and IT consulting opportunities.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <!-- Contact Info -->
+                    <div class="animate-on-scroll animate-in">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                                <div class="w-12 h-12 bg-gradient-to-r from-custom-cyan to-custom-blue rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Email</h4>
+                                    <a href="mailto:m.zubairsiddiqi1@gmail.com" class="text-custom-cyan hover:text-custom-blue transition-colors">
+                                        m.zubairsiddiqi1@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                                <div class="w-12 h-12 bg-gradient-to-r from-custom-blue to-custom-purple rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Phone</h4>
+                                    <a href="tel:+93783647080" class="text-custom-blue hover:text-custom-purple transition-colors">
+                                        +93 783 647 080
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                                <div class="w-12 h-12 bg-gradient-to-r from-custom-purple to-custom-cyan rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Location</h4>
+                                    <span class="text-gray-600 dark:text-gray-300">4th Macroryan Main Road, Azizi Plaza, Kabul-Afghanistan</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-globe text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Portfolio</h4>
+                                    <a href="https://zubairsiddiqi11.github.io/zubair-portfolio/" target="_blank" class="text-custom-blue hover:text-custom-purple transition-colors">
+                                        zubairsiddiqi11.github.io/zubair-portfolio
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-custom-cyan rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-language text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Languages</h4>
+                                    <span class="text-gray-600 dark:text-gray-300">Pashto (Native), Dari (Fluent), English (Fluent - TOEFL iBT 97)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Links -->
+                        <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Connect With Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://zubairsiddiqi11.github.io/zubair-portfolio/" target="_blank" class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-custom-cyan hover:text-white transition-all duration-300 transform hover:scale-110">
+                                    <i class="fas fa-globe"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/zubairsiddiqi10" target="_blank" class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="mailto:m.zubairsiddiqi1@gmail.com" class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-red-500 hover:text-white transition-all duration-300 transform hover:scale-110">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="tel:+93783647080" class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-green-500 hover:text-white transition-all duration-300 transform hover:scale-110">
+                                    <i class="fas fa-phone"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="animate-on-scroll animate-in">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send Message</h3>
+                            <form class="space-y-6" id="contact-form">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your Name</label>
+                                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-custom-cyan focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300">
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your Email</label>
+                                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-custom-cyan focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Subject</label>
+                                    <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-custom-cyan focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your Message</label>
+                                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-custom-cyan focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300 resize-none"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-gradient-to-r from-custom-cyan to-custom-blue text-white px-8 py-4 rounded-lg font-semibold hover:from-custom-blue hover:to-custom-cyan transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
+                                    <span>Send Message</span>
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      // particles
-      particles.forEach(p=>{
-        p.x += p.vx;
-        p.y += p.vy;
-        if(p.x < -50) p.x = W + 50;
-        if(p.x > W + 50) p.x = -50;
-        if(p.y < -50) p.y = H + 50;
-        if(p.y > H + 50) p.y = -50;
+        <!-- Footer -->
+        <footer class="bg-gray-900 dark:bg-black text-white py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Brand -->
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-custom-cyan to-custom-blue rounded-lg flex items-center justify-center">
+                                <i class="fas fa-laptop-code text-white text-lg"></i>
+                            </div>
+                            <div class="font-bold text-xl bg-gradient-to-r from-custom-cyan to-custom-blue bg-clip-text text-transparent">
+                                Mohammad Zubair Siddiqi
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm">
+                            Chief Technology Officer with 9+ years of experience in network infrastructure, system security, and technology leadership.
+                        </p>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="font-semibold text-white mb-4">Quick Links</h3>
+                        <div class="space-y-2">
+                            <a href="#home" class="block text-gray-400 hover:text-custom-cyan transition-colors text-sm">Home</a>
+                            <a href="#about" class="block text-gray-400 hover:text-custom-cyan transition-colors text-sm">About</a>
+                            <a href="#skills" class="block text-gray-400 hover:text-custom-cyan transition-colors text-sm">Skills</a>
+                            <a href="#projects" class="block text-gray-400 hover:text-custom-cyan transition-colors text-sm">Projects</a>
+                            <a href="#experience" class="block text-gray-400 hover:text-custom-cyan transition-colors text-sm">Experience</a>
+                            <a href="#contact" class="block text-gray-400 hover:text-custom-cyan transition-colors text-sm">Contact</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="font-semibold text-white mb-4">Contact</h3>
+                        <div class="space-y-2 text-sm text-gray-400">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-envelope w-4"></i>
+                                <span>m.zubairsiddiqi1@gmail.com</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-phone w-4"></i>
+                                <span>+93 783 647 080</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-map-marker-alt w-4"></i>
+                                <span>Kabul, Afghanistan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                    <p class="text-gray-400 text-sm">
+                        &copy; 2025 Mohammad Zubair Siddiqi.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
 
-        // glow
-        const grad = ctx.createRadialGradient(p.x,p.y,p.r*0.1,p.x,p.y,p.r*5);
-        grad.addColorStop(0, `hsla(${p.hue},100%,60%,0.12)`);
-        grad.addColorStop(0.5, `hsla(${p.hue},90%,55%,0.05)`);
-        grad.addColorStop(1, `rgba(2,6,15,0)`);
-        ctx.fillStyle = grad;
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.r*4,0,Math.PI*2); ctx.fill();
-
-        // core
-        ctx.fillStyle = `hsla(${p.hue},80%,55%,0.9)`;
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-      });
-
-      // connecting lines (subtle)
-      for(let i=0;i<particles.length;i++){
-        for(let j=i+1;j<i+3 && j<particles.length;j++){
-          const a=particles[i], b=particles[j];
-          const dx = a.x-b.x, dy = a.y-b.y;
-          const dist = Math.sqrt(dx*dx+dy*dy);
-          if(dist < 120){
-            ctx.strokeStyle = 'rgba(120,180,255,'+ (0.12 - dist/1000) +')';
-            ctx.lineWidth = 0.6;
-            ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(draw);
-    }
-    draw();
-
-    /* Floating decor (small orbiting elements) */
-    const floats = [];
-    for(let i=0;i<6;i++){
-      floats.push({
-        el: null, ang: Math.random()*Math.PI*2, r: 40+Math.random()*110, cx: (innerWidth*0.18)+(Math.random()*innerWidth*0.64), cy: innerHeight*0.3 + (Math.random()*200)
-      });
-    }
-
-    /* Accessibility: focus outlines for keyboard */
-    document.addEventListener('keydown', (e)=>{
-      if(e.key==='Tab') document.body.classList.add('show-focus');
-    });
-
-    /* Smooth scroll for nav links */
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', (ev)=>{
-        const href = a.getAttribute('href');
-        if(href.startsWith('#')){
-          ev.preventDefault();
-          const el = document.querySelector(href);
-          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-        }
-      });
-    });
-
-    /* Tiny progressive reveal for timeline items when they enter view */
-    const timelineItems = $$('.timeline-item');
-    const tio = new IntersectionObserver((ents)=>{
-      ents.forEach(en=>{
-        if(en.isIntersecting){ en.target.classList.add('in'); tio.unobserve(en.target); }
-      })
-    }, {threshold:0.15});
-    timelineItems.forEach(t=> { t.classList.add('reveal'); tio.observe(t); });
-
-    /* Initial fallback photo handling */
-    const photo = document.querySelector('img[alt="Mohammad Zubair Siddiqi"]');
-    if(photo){
-      photo.onerror = ()=>{ document.getElementById('photoFallback').style.display='grid'; }
-    }
-
-    /* Tiny title shimmer (reflow) */
-    setInterval(()=>{
-      document.querySelectorAll('.section-title').forEach((el,i)=>{
-        el.style.backgroundPosition = Math.floor((Date.now()/80 + i*40)%200) + '%';
-      })
-    }, 90);
-
-    /* Make skill fills animate from left */
-    $$('.skill-fill').forEach(el=>{
-      el.style.width = '0%';
-      setTimeout(()=> el.style.width = el.getAttribute('data-fill') || '80%', 600);
-    });
-
-    /* Ensure revealable elements get 'in' when loaded if near viewport */
-    window.addEventListener('load', ()=>{ $$('.reveal').forEach(el=>{ if(el.getBoundingClientRect().top < innerHeight*0.85) el.classList.add('in'); }) });
-
-  </script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
